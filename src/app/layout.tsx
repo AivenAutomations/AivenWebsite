@@ -45,9 +45,6 @@ export const metadata: Metadata = {
     description:
       "Custom AI automation systems for service and product businesses.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
