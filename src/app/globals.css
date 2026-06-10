@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-aqua: #00B3C0;
+  --color-aqua-soft: #E6F7F8;
+  --color-aqua-deep: #008892;
+  --color-graphite: #1A1A1A;
+  --color-ink: #0E0F11;
+  --color-mist: #D9E1E5;
+  --color-soft: #F5F7F8;
+  --color-line: #E7EBEE;
+  --color-muted: #6B7480;
+
+  --color-background: #FFFFFF;
+  --color-foreground: var(--color-graphite);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 16px;
+  --radius-btn: 12px;
+
+  --shadow-soft: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px -12px rgba(16, 24, 40, 0.08);
+  --shadow-card: 0 1px 0 rgba(16, 24, 40, 0.04), 0 12px 32px -16px rgba(16, 24, 40, 0.12);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+  background: var(--color-aqua);
+  color: #fff;
+}
+
+/* Subtle aqua hairline used as a brand accent on dividers */
+.hairline {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-line) 20%,
+    var(--color-line) 80%,
+    transparent 100%
+  );
+}
+
+/* Animated underline for inline links */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 350ms var(--ease-out-soft);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Aqua focus ring everywhere by default */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-aqua);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Grid background utility for hero ambience */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Aqua gradient wash used behind hero / accent areas */
+.aqua-glow {
+  background: radial-gradient(
+    closest-side,
+    rgba(0, 179, 192, 0.18),
+    rgba(0, 179, 192, 0.05) 50%,
+    transparent 80%
+  );
 }
