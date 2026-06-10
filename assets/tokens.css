@@ -1,0 +1,226 @@
+/* ============================================================
+   Aiven Automations — Colors & Typography
+   ============================================================
+   Single source of truth for design tokens. Import or copy this
+   file before any styling. Every color and font reference in the
+   system flows from variables defined here.
+   ============================================================ */
+
+/* --- Web fonts ------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  /* ===== Brand & Accent ===== */
+  --color-primary:        #00B3C0;             /* Aiven Aqua — single accent */
+  --color-primary-hover:  #009aaa;             /* Hover (filter: brightness(.88) in practice) */
+  --color-primary-muted:  rgba(0,179,192,0.12);/* Tint background for chips/icons */
+
+  /* ===== Surface ===== */
+  --color-canvas:         #FFFFFF;             /* Default page canvas */
+  --color-canvas-soft:    #F5F7F8;             /* Signature off-white — alternating section */
+  --color-surface-dark:   #1A1A1A;             /* Graphite — alt dark section */
+  --color-surface-black:  #000000;             /* True void — global nav only */
+  --color-surface-muted:  #D9E1E5;             /* Mist gray — dividers, disabled fills */
+
+  /* ===== Text ===== */
+  --color-ink:               #000000;          /* Headlines, strong emphasis */
+  --color-body:              #1A1A1A;          /* Default paragraph */
+  --color-body-on-dark:      #FFFFFF;          /* Text on graphite */
+  --color-body-muted:        #6B7280;          /* Secondary on light */
+  --color-body-muted-on-dark:#A0ADB8;          /* Secondary on dark */
+  --color-ink-disabled:      #B0B8BF;          /* Disabled / placeholder */
+
+  /* ===== Status & Feedback ===== */
+  --color-status-active:        #22C55E;
+  --color-status-active-bg:     rgba(34,197,94,0.12);
+  --color-status-inprogress:    #3B82F6;
+  --color-status-inprogress-bg: rgba(59,130,246,0.12);
+  --color-status-draft:         #9CA3AF;
+  --color-status-draft-bg:      rgba(156,163,175,0.12);
+  --color-status-error:         #EF4444;
+
+  /* ===== Hairlines & Borders ===== */
+  --color-border:           #D9E1E5;
+  --color-border-muted:     rgba(0,0,0,0.06);
+  --color-border-on-dark:   rgba(255,255,255,0.10);
+
+  /* ===== Brand Gradient (use sparingly) ===== */
+  --gradient-hero: linear-gradient(135deg, #F5F7F8 0%, #EAF6F7 100%);
+
+  /* ===== Font families ===== */
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ===== Type scale (size / weight / line-height / tracking) ===== */
+  --type-hero-display-size: 48px;
+  --type-hero-display-lh:   60px;   /* 1.25 */
+  --type-hero-display-ls:   -0.5px;
+
+  --type-display-lg-size: 32px;
+  --type-display-lg-lh:   40px;     /* 1.25 */
+  --type-display-lg-ls:   -0.3px;
+
+  --type-display-md-size: 24px;
+  --type-display-md-lh:   32px;     /* 1.33 */
+  --type-display-md-ls:   -0.2px;
+
+  --type-display-sm-size: 20px;
+  --type-display-sm-lh:   28px;     /* 1.4 */
+  --type-display-sm-ls:   0;
+
+  --type-lead-size: 18px;
+  --type-lead-lh:   28px;           /* 1.56 */
+
+  --type-body-size: 16px;
+  --type-body-lh:   24px;           /* 1.5 */
+
+  --type-caption-size: 12px;
+  --type-caption-lh:   16px;        /* 1.33 */
+
+  --type-label-size: 12px;
+  --type-label-lh:   16px;
+  --type-label-ls:   0.5px;
+
+  --type-nav-size: 14px;
+
+  /* ===== Spacing (8px base) ===== */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section:    80px;
+  --space-section-lg: 120px;
+
+  /* ===== Border radius ===== */
+  --radius-none: 0px;
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;  /* Default card / button radius */
+  --radius-lg:   16px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  /* ===== Elevation ===== */
+  --shadow-card:          0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-card-elevated: 0 4px 24px rgba(0,0,0,0.10);
+  --shadow-focus-ring:    0 0 0 3px rgba(0,179,192,0.30);
+
+  /* ===== Motion ===== */
+  --transition-base: all 0.2s ease;
+  --press-scale:     0.97;
+
+  /* ===== Layout ===== */
+  --container-max:  1200px;
+}
+
+/* ============================================================
+   Semantic typography utilities
+   Apply via class or copy properties into bespoke selectors.
+   ============================================================ */
+
+.t-hero-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--type-hero-display-size);
+  line-height: var(--type-hero-display-lh);
+  letter-spacing: var(--type-hero-display-ls);
+  color: var(--color-ink);
+}
+.t-display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--type-display-lg-size);
+  line-height: var(--type-display-lg-lh);
+  letter-spacing: var(--type-display-lg-ls);
+  color: var(--color-ink);
+}
+.t-display-md {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--type-display-md-size);
+  line-height: var(--type-display-md-lh);
+  letter-spacing: var(--type-display-md-ls);
+  color: var(--color-ink);
+}
+.t-display-sm {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--type-display-sm-size);
+  line-height: var(--type-display-sm-lh);
+  color: var(--color-ink);
+}
+.t-lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--type-lead-size);
+  line-height: var(--type-lead-lh);
+  color: var(--color-body);
+}
+.t-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
+  color: var(--color-body);
+}
+.t-body-strong {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
+  color: var(--color-body);
+}
+.t-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--type-caption-size);
+  line-height: var(--type-caption-lh);
+  color: var(--color-body-muted);
+}
+.t-caption-strong {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--type-caption-size);
+  line-height: var(--type-caption-lh);
+}
+.t-label {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-lh);
+  letter-spacing: var(--type-label-ls);
+}
+.t-section-label {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-lh);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.t-fine-print {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--type-caption-size);
+  line-height: 1.5;
+  color: var(--color-body-muted);
+}
+.t-nav-link {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--type-nav-size);
+  line-height: 1;
+}
+
+/* Headings default — apply globally if scoping a page */
+.aiven h1 { font: 700 var(--type-hero-display-size)/var(--type-hero-display-lh) var(--font-display); letter-spacing: var(--type-hero-display-ls); color: var(--color-ink); }
+.aiven h2 { font: 700 var(--type-display-lg-size)/var(--type-display-lg-lh) var(--font-display); letter-spacing: var(--type-display-lg-ls); color: var(--color-ink); }
+.aiven h3 { font: 700 var(--type-display-md-size)/var(--type-display-md-lh) var(--font-display); letter-spacing: var(--type-display-md-ls); color: var(--color-ink); }
+.aiven h4 { font: 700 var(--type-display-sm-size)/var(--type-display-sm-lh) var(--font-display); color: var(--color-ink); }
+.aiven p  { font: 400 var(--type-body-size)/var(--type-body-lh) var(--font-body); color: var(--color-body); }
+.aiven code { font-family: var(--font-mono); font-size: var(--type-label-size); }
